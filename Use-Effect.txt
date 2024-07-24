@@ -1,0 +1,47 @@
+Use-Effect :=
+
+//'rfce' is short form 
+
+import {useEffect, useState} from 'react'
+import React from 'react'
+
+function UseEffect() {
+    const[count, setCount] = useState(0)
+
+    //3 different stages of use effect
+    // useEffect(()=>{
+        
+    //     console.log("Use-Effect Called ");
+    // }, []) //[] it means it is called only once when page is refreshed or empty array is there
+
+    // useEffect(()=>{
+        
+    //     console.log("Use-Effect Called ");
+    // }) //any time when function is called it changes its value.
+
+    //useEffect(()=>{
+        
+        //     console.log("Use-Effect Called ");
+        // }, [count]) //any time when count changes
+
+    function countInc(){
+        setCount(count+1);
+    }
+
+    function countDec(){
+        setCount(count-1);
+    }
+
+  return (
+    <div>
+      <h1> UseEffect </h1>
+      <h1> {count} </h1>
+      <button onClick={countInc}> + </button>
+      <button onClick={countDec}> - </button>
+    </div>
+  )
+}
+
+export default UseEffect
+
+

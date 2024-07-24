@@ -1,0 +1,124 @@
+React - Day 2
+
+app.jsx is the folder where we make all the changes.
+
+self closing tag = <App />
+
+file name should be same as function name
+
+//we cannot return more than one component separately 
+//so we create a div and inside it write different elements and return the div (as a combined simple element) inside any function.
+
+function x({a, b}) //always pass the data as object
+
+Assignment- how to pop in set function in usecase….
+
+
+
+App wale function k ander likhna hai ye sara
+
+// const [x,setX] = useState([1,2,3])
+  // console.log(...x);
+  // setX([...x,4]);
+  // let x = 20;
+  // const[y,setY] = React.useState("10") //if we write, import { useState } from 'react'  at top then no need to write React in React.useState("10")
+  // console.log(x);
+  // console.log(y);
+  //  const[todo,setTodo] = useState("");  //todo and settodo are both variables
+  //  const[inputValue,setinputValue] = useState("");
+  //  inputValue = "";
+
+  // function log(){
+  //   x.push(20)
+  //   setX(x);
+  //   console.log(x);
+
+  //   // console.log("input Value = "+inputValue);
+  //   // todo.push("Hello")
+  //   // //setTodo(inputValue)
+  //   // console.log("input(previos) Arr = "+ todo);
+  // }
+  // function log1()
+  // {
+  //   setX(30);
+  //   console.log(x);
+  // }
+
+  // let [a,b,c] = [1,2,3]
+  // console.log("array- ", [1,2,3]);
+  // console.log("destructure -", ...[1,2,3]);
+  // console.log("add new data-", ...[1,2,3],4);
+  // console.log("convert after adding a data into array- ", [...[1,2,3],4]);
+
+
+// function App(clr) {
+//   const [count, setCount] = useState(0)
+
+//   let i=0
+//   function log(){
+//     i++;
+//     console.log(i);
+//   }
+
+// export default App
+
+// function parent (a,b) {
+//   function child(c){
+
+
+//   }
+//   child(b)
+// }
+
+
+{/*   <Button a={"red"} b={"rounded"} c={"click1"}/>
+      <Button a={"green"} />
+      <Button a={"pink"} />
+      <Button text={"Morning"} style={"red"}/>          //here text,style works as an attribute which is passed into the (user-defined)function Button as a variable
+      <Button text={"Afternoon"}/>
+      
+      <input type="text" onChange={(e)=>{
+          console.log(e.target.value)
+        }
+      } name="inp" id="inp"/>  
+  */}
+
+
+Button.jsx k ander hai ye sara  ''''' :)
+
+import './Button.css'
+
+//console.log(style);
+    //let inline = style == "rounded"? `color:"red"` : `color:"green" `
+    // let styles = {
+    //     color : style == "red" ? "red": "green"
+    // }
+
+function Button({a, b,c}){
+    let x = {
+          color : a,
+          borderRadius: b=="rounded" ? "50px" : "0px"
+         }
+    return(
+        <> 
+            <button style={x}>{c}</button>
+        </>
+    )
+    //we cannot return more than one component separately 
+    /*so we create a div and inside it write different elements and return the div (as a combined simple element)*/
+};
+
+//function x({a, b}){
+//always pass the data as an object in {}
+
+//x({b:10, a:"hi"})
+
+export default Button; //we export functions not css files 
+
+
+
+button.css file :)
+h1{
+    color: white;
+    background-color: teal;
+}

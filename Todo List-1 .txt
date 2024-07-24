@@ -1,0 +1,69 @@
+Todo List-1 
+
+
+
+import { useState } from 'react'
+import React from "react"
+
+//import Button from './components/Button'
+
+function App() {
+
+  const [todo, setTodo] = useState("");
+  const [todoArr, setTodoArr] = useState([]);
+
+  // let arr = [1,2,3,4,5,6,7,8,9];
+  // let newArr = arr.filter((el,i)=> el%2 == 0)  //here 1st variable is element and 2nd one is index
+  // //here filter creates a new array and then push the elements into it
+  // console.log(arr, "Actual Array");
+  // console.log(newArr, "New Array");
+
+  //console.log(Math.random()+Date.now())
+
+  function pushData(){
+
+    let todoObj = {
+      id: Math.random()+Date.now()+todo,
+      todo: todo,
+      isCompleted: false
+    }
+  setTodoArr([...todoArr, todoObj]);  //destructure and Add
+  console.log(todoArr);           //print 
+  }
+
+  function handleDel(id){
+    console.log(id);
+    let newTodoArr = todoArr.filter((el) => el.id !== id); //if the passed id does match it will save orelse it will ignore
+    setTodoArr(newTodoArr);   //replace the array with new one
+  }
+
+  function update(id)
+  {
+    let updatedArr = todoArr.map((el)=>{
+      return el.id === id ? {...el, isCompleted : !el.isCompleted} : el;  //it will return object, 1st cond- will return updated obj, 2nd cond- will return whole obj.
+    })
+    setTodoArr(updatedArr);
+  }
+
+  return (
+    <>
+     <input type="text" name="" id="" placeholder="ADDD TODO LIST" onChange={(e)=>{setTodo(e.target.value)}} />
+     <button onClick={pushData}> Click  </button>
+      {
+         todoArr.map((el)=>(
+          <div>
+            <h1>{el.todo}</h1> 
+            <h2>{el.isCompleted ? "Task is Competed" : "Not Completed "}</h2>   
+            <button onClick={()=>{handleDel(el.id)}}> Delete </button>
+            <button onClick={()=>{update(el.id)}}> Update Task</button>
+          </div>
+          
+        ))
+
+        //pushData will return an object but we cannot print an object, so we write= el.todo 
+      }
+    </>
+  )
+
+}
+export default App
